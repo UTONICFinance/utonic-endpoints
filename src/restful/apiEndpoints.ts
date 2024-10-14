@@ -97,4 +97,9 @@ export const ENDPOINTS = {
     dataStatus: {
         status: `${parentEndpoint}/metrics/swap/`,
     },
+    points: {
+        user_info: `${parentEndpoint}/user_info/`,
+        inviter_address: `${parentEndpoint}/inviter_address/`,
+        invite: `${parentEndpoint}/invite/`,
+    },
 };
