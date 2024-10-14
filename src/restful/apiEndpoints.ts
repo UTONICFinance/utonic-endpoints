@@ -12,6 +12,11 @@ const api_host_config: Record<string, string> = {
     production: 'api.izumi.finance',
     local: 'localhost:8000',
 };
+// const api_host_config: Record<string, string> = {
+//     development: 'ac25-199-15-77-150.ngrok-free.app',
+//     production: 'ac25-199-15-77-150.ngrok-free.app',
+//     local: 'localhost:8000',
+// };
 
 const game_api_host_config: Record<string, string> = {
     development: 'data.izumi.finance',
@@ -98,8 +103,8 @@ export const ENDPOINTS = {
         status: `${parentEndpoint}/metrics/swap/`,
     },
     points: {
-        user_info: `${parentEndpoint}/user_info/`,
-        inviter_address: `${parentEndpoint}/inviter_address/`,
-        invite: `${parentEndpoint}/invite/`,
+        user_info: `${parentEndpoint}/points/user_info/`,
+        inviter_address: `${parentEndpoint}/points/inviter_address/`,
+        invite: `${parentEndpoint}/points/invite/`,
     },
 };

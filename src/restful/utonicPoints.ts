@@ -17,7 +17,7 @@ export type ResponseUserInfo = {
     user_point: number;
     referral_point: number;
     referral: string;
-    referee: number[];
+    referee: string[];
     history: PointHistoryTypes[];
 };
 
