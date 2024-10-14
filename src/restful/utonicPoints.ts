@@ -19,6 +19,8 @@ export type ResponseUserInfo = {
     referral: string;
     referee: string[];
     history: PointHistoryTypes[];
+    invite_token?: string;
+    source?: string;
 };
 
 export const getUserInfo: RequestNormal<RequestUserInfo, ResponseUserInfo> = async (params) => {
@@ -26,26 +28,42 @@ export const getUserInfo: RequestNormal<RequestUserInfo, ResponseUserInfo> = asy
 };
 
 export type RequestInviteToken = {
-    invite_token: string;
+    inviteToken: string;
 };
 
 export type ResponseInviteToken = {
     user_address: string;
 };
 
-export const getInviteToken: RequestNormal<RequestInviteToken, ResponseInviteToken> = async (params) => {
+export const getInviteAddressByToken: RequestNormal<RequestInviteToken, ResponseInviteToken> = async (params) => {
     return axios.get(ENDPOINTS.points.inviter_address, { params });
 };
 
 export type RequestInvite = {
     address: string;
-    invite_address: string;
+    inviteAddress: string;
 };
 
 // export type ResponseInvite = {
 
 // };
 
-export const getInvite: RequestNormal<RequestInvite, null> = async (params) => {
+export const sendInvite: RequestNormal<RequestInvite, null> = async (params) => {
     return axios.get(ENDPOINTS.points.invite, { params });
+};
+
+export type RequestInviteCodeByNewUser = {
+    address: string;
+};
+
+export const getInviteCodeByNewUser: RequestNormal<RequestInviteCodeByNewUser, ResponseUserInfo> = async (params) => {
+    return axios.get(ENDPOINTS.points.new_user, { params });
+};
+
+export type RequestSendSource = {
+    address: string;
+    source: string;
+};
+export const sendSource: RequestNormal<RequestSendSource, null> = async (params) => {
+    return axios.get(ENDPOINTS.points.source, { params });
 };

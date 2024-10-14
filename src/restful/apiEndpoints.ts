@@ -106,5 +106,7 @@ export const ENDPOINTS = {
         user_info: `${parentEndpoint}/points/user_info/`,
         inviter_address: `${parentEndpoint}/points/inviter_address/`,
         invite: `${parentEndpoint}/points/invite/`,
+        new_user: `${parentEndpoint}/points/new_user/`,
+        source: `${parentEndpoint}/points/source/`,
     },
 };
