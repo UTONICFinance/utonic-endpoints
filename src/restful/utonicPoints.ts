@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ENDPOINTS } from './apiEndpoints';
 import { RequestNormal } from './apiUtils';
+import CryptoJS from 'crypto-js';
 
 export type PointHistoryTypes = {
     point: number;
@@ -41,7 +42,7 @@ export const getInviteAddressByToken: RequestNormal<RequestInviteToken, Response
 
 export type RequestInvite = {
     address: string;
-    inviteAddress: string;
+    inviteToken: string;
 };
 
 // export type ResponseInvite = {
@@ -49,7 +50,18 @@ export type RequestInvite = {
 // };
 
 export const sendInvite: RequestNormal<RequestInvite, null> = async (params) => {
-    return axios.get(ENDPOINTS.points.invite, { params });
+    const secretKey = '384f5e64-c7bb-4d67-8821-1c9d590bef73';
+    // Message to be encrypted
+    const message = params.address;
+    // Generate HMAC
+    const hmac = CryptoJS.HmacSHA256(message, secretKey).toString(CryptoJS.enc.Hex);
+
+    return axios.get(ENDPOINTS.points.invite, {
+        params,
+        headers: {
+            signature: hmac,
+        },
+    });
 };
 
 export type RequestInviteCodeByNewUser = {
