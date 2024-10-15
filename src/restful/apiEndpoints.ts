@@ -7,14 +7,9 @@ interface APIConfig {
     version: string;
 }
 
-// const api_host_config: Record<string, string> = {
-//     development: 'alpha-api.izumi.finance',
-//     production: 'api.izumi.finance',
-//     local: 'localhost:8000',
-// };
 const api_host_config: Record<string, string> = {
-    development: 'ac25-199-15-77-150.ngrok-free.app',
-    production: 'ac25-199-15-77-150.ngrok-free.app',
+    development: 'api.utonic.org',
+    production: 'api.utonic.org',
     local: 'localhost:8000',
 };
 
