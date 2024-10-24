@@ -104,4 +104,7 @@ export const ENDPOINTS = {
         new_user: `${parentEndpoint}/points/new_user/`,
         source: `${parentEndpoint}/points/source/`,
     },
+    portfolio: {
+        history: `${parentEndpoint}/stake/stake_record/`,
+    },
 };
