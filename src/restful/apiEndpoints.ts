@@ -103,6 +103,7 @@ export const ENDPOINTS = {
         invite: `${parentEndpoint}/points/invite/`,
         new_user: `${parentEndpoint}/points/new_user/`,
         source: `${parentEndpoint}/points/source/`,
+        market: `${parentEndpoint}/points/marketing_source/`,
     },
     portfolio: {
         history: `${parentEndpoint}/stake/stake_record/`,

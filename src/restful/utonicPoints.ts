@@ -79,3 +79,11 @@ export type RequestSendSource = {
 export const sendSource: RequestNormal<RequestSendSource, null> = async (params) => {
     return axios.get(ENDPOINTS.points.source, { params });
 };
+
+export type RequestSendMarketSource = {
+    address: string;
+    marketing_source: string;
+};
+export const sendMarketSource: RequestNormal<RequestSendMarketSource, null> = async (params) => {
+    return axios.get(ENDPOINTS.points.market, { params });
+};
