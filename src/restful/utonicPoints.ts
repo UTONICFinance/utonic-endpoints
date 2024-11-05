@@ -74,7 +74,8 @@ export const getInviteCodeByNewUser: RequestNormal<RequestInviteCodeByNewUser, R
 
 export type RequestSendSource = {
     address: string;
-    source: string;
+    source?: string;
+    marketing_source?: string;
 };
 export const sendSource: RequestNormal<RequestSendSource, null> = async (params) => {
     return axios.get(ENDPOINTS.points.source, { params });
