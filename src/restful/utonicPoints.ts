@@ -43,21 +43,14 @@ export const getInviteAddressByToken: RequestNormal<RequestInviteToken, Response
 export type RequestInvite = {
     address: string;
     inviteToken: string;
+    hmac: string;
 };
 
-// export type ResponseInvite = {
-
-// };
-
 export const sendInvite: RequestNormal<RequestInvite, null> = async (params) => {
-    const secretKey = '384f5e64-c7bb-4d67-8821-1c9d590bef73';
-    // Message to be encrypted
-    const message = params.address;
     // Generate HMAC
-    const hmac = CryptoJS.HmacSHA256(message, secretKey).toString(CryptoJS.enc.Hex);
-
+    const { hmac, ...filteredParams } = params;
     return axios.get(ENDPOINTS.points.invite, {
-        params,
+        params: filteredParams,
         headers: {
             signature: hmac,
         },
