@@ -81,3 +81,7 @@ export type RequestSendMarketSource = {
 export const sendMarketSource: RequestNormal<RequestSendMarketSource, null> = async (params) => {
     return axios.get(ENDPOINTS.points.market, { params });
 };
+
+export const getHistoryUser: RequestNormal<null, number> = async (params) => {
+    return axios.get(ENDPOINTS.points.user, { params });
+};

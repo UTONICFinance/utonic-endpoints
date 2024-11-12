@@ -75,3 +75,13 @@ export const memGetTokenPriceBySymbol = mem(getTokenPriceBySymbol, {
     maxAge: 5 * 60 * 1000,
     cacheKey: (arguments_) => `tokenPriceS-${arguments_}`,
 });
+export type ResponsePrice = {
+    data: {
+        symbol: string;
+        price: string;
+    };
+};
+
+export const getUTonPrice = async (): Promise<ResponsePrice> => {
+    return axios.get('https://api1.binance.com/api/v3/ticker/price?symbol=TONUSDT');
+};

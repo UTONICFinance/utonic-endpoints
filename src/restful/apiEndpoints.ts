@@ -104,6 +104,7 @@ export const ENDPOINTS = {
         new_user: `${parentEndpoint}/points/new_user/`,
         source: `${parentEndpoint}/points/source/`,
         market: `${parentEndpoint}/points/marketing_source/`,
+        user: `${parentEndpoint}/points/user_num/`,
     },
     portfolio: {
         history: `${parentEndpoint}/stake/stake_record/`,
