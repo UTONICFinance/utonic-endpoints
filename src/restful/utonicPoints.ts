@@ -85,3 +85,27 @@ export const sendMarketSource: RequestNormal<RequestSendMarketSource, null> = as
 export const getHistoryUser: RequestNormal<null, number> = async (params) => {
     return axios.get(ENDPOINTS.points.user, { params });
 };
+
+export type DefiInfo = {
+    attributes: {
+        reserve_in_usd: string;
+    };
+    relationships: {
+        dex: {
+            data: {
+                id: string;
+                type: string;
+            };
+        };
+    };
+};
+
+export type ResponseDefiInfo = {
+    data: {
+        data: DefiInfo[];
+    };
+};
+
+export const getDefiInfo = async (): Promise<ResponseDefiInfo> => {
+    return axios.get('https://api.geckoterminal.com/api/v2/search/pools?query=uton&network=ton&page=1');
+};
