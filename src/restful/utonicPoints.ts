@@ -109,3 +109,77 @@ export type ResponseDefiInfo = {
 export const getDefiInfo = async (): Promise<ResponseDefiInfo> => {
     return axios.get('https://api.geckoterminal.com/api/v2/search/pools?query=uton&network=ton&page=1');
 };
+
+export interface InitDataUnsafeType {
+    auth_date: string;
+    hash: string;
+    query_id: string;
+    signature: string;
+    user?: {
+        id: number;
+        first_name: string;
+        last_name?: string;
+        username?: string;
+        language_code?: string;
+        photo_url?: string;
+        allows_write_to_pm?: boolean;
+    };
+}
+
+export type RequestTgUserInfo = {
+    initData: string;
+};
+
+export type ResponseTgUserInfo = {
+    user_id: string;
+    tonic_point: number;
+    wallet_address: string;
+    finished_task_id: number[];
+    referral: string;
+    referee: string[];
+};
+
+export const getTgUserInfo: RequestNormal<RequestTgUserInfo, ResponseTgUserInfo> = async (params) => {
+    return axios.get(ENDPOINTS.points.tg_user_info, { params });
+};
+
+export type RequestConnectTgUserWallet = {
+    initData: string;
+    address: string;
+};
+
+export const postConnectTgUserWallet: RequestNormal<RequestConnectTgUserWallet, null> = async (params) => {
+    return axios.post(ENDPOINTS.points.connect_tg_user_wallet, {
+        ...params,
+    });
+};
+
+export type RequestProcessTgTask = {
+    initData: string;
+    taskId: number;
+};
+
+export const postProcessTgTask: RequestNormal<RequestProcessTgTask, null> = async (params) => {
+    return axios.post(ENDPOINTS.points.process_tg_task, {
+        ...params,
+    });
+};
+
+export type RequestInviteTgUser = {
+    initData: string;
+    inviterId: string;
+};
+
+export const postInviteTgUser: RequestNormal<RequestInviteTgUser, null> = async (params) => {
+    return axios.post(ENDPOINTS.points.invite_tg_user, {
+        ...params,
+    });
+};
+
+export type RequestTgNameById = {
+    userId: string;
+};
+
+export const getTgNameById: RequestNormal<RequestTgNameById, string> = async (params) => {
+    return axios.get(ENDPOINTS.points.tgUserName, { params });
+};

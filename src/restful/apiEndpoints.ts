@@ -105,6 +105,11 @@ export const ENDPOINTS = {
         source: `${parentEndpoint}/points/source/`,
         market: `${parentEndpoint}/points/marketing_source/`,
         user: `${parentEndpoint}/points/user_num/`,
+        tg_user_info: `${parentEndpoint}/points/tg_user_info/`,
+        connect_tg_user_wallet: `${parentEndpoint}/points/connect_tg_user_wallet/`,
+        process_tg_task: `${parentEndpoint}/points/process_tg_task/`,
+        invite_tg_user: `${parentEndpoint}/points/invite_tg_user/`,
+        tgUserName: `${parentEndpoint}/points/tg_user_name/`,
     },
     portfolio: {
         history: `${parentEndpoint}/stake/stake_record/`,
