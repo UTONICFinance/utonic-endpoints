@@ -4,6 +4,8 @@ import { RequestNormal } from './apiUtils';
 
 export type RequestOperatorList = {
     address?: string;
+    page?: number; // start from 1
+    page_size?: number;
 };
 
 export type ResponseOperatorList = {
