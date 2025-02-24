@@ -8,7 +8,7 @@ interface APIConfig {
 }
 
 const api_host_config: Record<string, string> = {
-    development: 'api.utonic.org',
+    development: 'alpha-api.utonic.org',
     production: 'api.utonic.org',
     local: 'localhost:8000',
 };
@@ -113,5 +113,10 @@ export const ENDPOINTS = {
     },
     portfolio: {
         history: `${parentEndpoint}/stake/stake_record/`,
+    },
+    reStake: {
+        operator: `${parentEndpoint}/restake/get_operator_list/`,
+        check: `${parentEndpoint}/restake/check_operator_register_api_status/`,
+        upload: `${parentEndpoint}/restake/upload_operator/`,
     },
 };
