@@ -3,13 +3,13 @@ import { ENDPOINTS } from './apiEndpoints';
 import { RequestNormal } from './apiUtils';
 
 export type RequestOperatorList = {
-    operator_address?: string;
+    address?: string;
 };
 
 export type ResponseOperatorList = {
     operator_address: string;
     operator_register_address: string;
-    is_baned: 0 | 1;
+    status: number;
     name: null | string;
     twitter: null | string;
     website: null | string;
