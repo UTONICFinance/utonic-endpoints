@@ -8,6 +8,11 @@ export type RequestOperatorList = {
     page_size?: number;
 };
 
+export type StrategySharesType = {
+    token_symbol: string;
+    shares: number;
+};
+
 export type ResponseOperatorList = {
     operator_address: string;
     operator_register_address: string;
@@ -19,6 +24,7 @@ export type ResponseOperatorList = {
     image: null | string;
     image_small: null | string;
     record_time: string;
+    strategy_shares: StrategySharesType[];
 };
 
 export const getOperatorList: RequestNormal<RequestOperatorList, ResponseOperatorList[]> = async (params) => {
